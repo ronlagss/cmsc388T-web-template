@@ -6,21 +6,18 @@
 #there should be a total of 9 lines
 FROM node:10-alpine 
 
-RUN useradd -ms /bin/bash ojdk
+RUN mkdir -p /home/node/app/node_modules && chown -R node:node /home/node/app
 
-RUN mkdir -p /home/ojdk/app && chown -R ojdk:ojdk
-/home/ojdk/app
+WORKDIR /home/node/app
 
-WORKDIR /home/ojdk/app
+COPY package*.json ./
 
-COPY *.java ./
-COPY junit-* ./
+USER node
 
-USER ojdk 
+RUN npm install
 
-RUN javac -cp "junit-4.10.jar:." *.java
+COPY --chown=node:node . .
 
-COPY --chown=ojdk:ojdk . .
+EXPOSE 8080
 
-CMD ["java", "-cp", "junit-4.10.jar:.", 
-"org.junit.runner.JUnitCore", "TestAdd", "TestSub"]
+CMD ["node", "app.js"]
