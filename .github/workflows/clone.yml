@@ -23,4 +23,4 @@ jobs:
           password: ${{ secrets.PASWORD }}
           port: ${{ secrets.PORT }}
           script: |
-              git clone
+              git clone git@github.com:ronlagss/ronlagss.github.io.git
