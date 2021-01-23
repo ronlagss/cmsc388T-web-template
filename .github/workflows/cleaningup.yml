@@ -12,10 +12,10 @@ jobs:
       - name: testing
         uses: appleboy/ssh-action@master
         with:
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.USERNAME }}
-          password: ${{ secrets.PASSWORD }}
-          port: ${{secrets.PORT }}
+          host: terpconnect.umd.edu
+          username: rlagos  
+          password: Pleasework123@
+          port: 22
           script: |
              unalias rm
              rm -rf ronlagss.github.io
