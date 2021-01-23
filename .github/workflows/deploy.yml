@@ -18,10 +18,10 @@ jobs:
       - name: testing
         uses: appleboy/ssh-action@master
         with:
-          host: terpconnect.umd.edu
-          username: rlagos  
-          password: Pleasework123@
-          port: 22
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+          port: ${{ secrets.PORT }}
           script: |
               cd TestRepo
               git pull
