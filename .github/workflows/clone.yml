@@ -25,4 +25,4 @@ jobs:
           script: |
               cd ..
               cd pub/
-              git clone git@github.com:ronlagss/ronlagss.github.io
+              git clone git@github.com:ronlagss/ronlagss.github.io.git
